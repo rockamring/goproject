@@ -2,9 +2,9 @@ package chanrpc
 
 import (
 	"fmt"
-	"github.com/name5566/leaf/conf"
+	"github.com/rockamring/goproject/server/conf"
 	"runtime"
-	"github.com/name5566/leaf/log"
+	"github.com/rockamring/goproject/server/log"
 	"errors"
 )
 
