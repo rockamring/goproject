@@ -5,6 +5,7 @@ import (
 	"github.com/rockamring/goproject/server/go"
 	"github.com/rockamring/goproject/server/timer"
 	"time"
+	"server/conf"
 )
 
 type Skeleton struct {
@@ -117,4 +118,16 @@ func (s *Skeleton) RegisterChanRPC(id interface{}, f interface{}) {
 
 func (s *Skeleton) RegisterCommand(name string, help string, f interface{}) {
 
+}
+
+func NewSkeleton() *Skeleton {
+	skeleton := &Skeleton{
+		GoLen:				conf.GoLen,
+		TimerDispatcherLen:	conf.TimerDispatcherLen,
+		AsynCallLen:		conf.AsynCallLen,
+		ChanRPCServer:		chanrpc.NewServer(conf.ChanRPCLen),
+	}
+	skeleton.Init()
+
+	return skeleton
 }
